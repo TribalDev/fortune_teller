@@ -1,4 +1,7 @@
+
+<%= render 'partials/nav' %>
+
 <h1>Get the Answers You Seek</h1>
 <p>We here at <em>TribalDev</em> know how hard it is to make important choices, so why not let us do that for you!</p>
 
-<%= button_to "Oh TribalDev fortune teller, tell me what to do!!!", message_path(random_message), :class => "button", :method => :get  %>
+<%= button_to "Think of your question and press here for the answer", message_path(random_message), :class => "button", :method => :get  %>
