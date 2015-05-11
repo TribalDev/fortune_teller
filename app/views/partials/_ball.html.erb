@@ -1,6 +1,6 @@
 <% inside ||= false %>
 
-<div class="get_message block col-xs-12 col-md-6 col-center" id="toggle">
+<div class="get_message block col-xs-12 col-md-6 col-center" id = "toggle" href="<%= message_path(random_message) %>" >
   <div class="centering col-center col-xs-12 col-md-6" id="shake_button">
     <% if inside %>
       <div>
@@ -8,7 +8,7 @@
         <p class="author">by <%= inside.author %></p>
       </div>
     <% else %>
-      <%= button_to "Shake the ball!", message_path(random_message), :class => "button col-xs-12", :method => :get  %>
+      <p class="col-center">"Shake the ball!" </p>
     <% end %>
   </div>
 </div>

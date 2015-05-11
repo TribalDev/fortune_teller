@@ -1,20 +1,22 @@
 <%= render 'partials/nav' %>
 
-<h1>Get the Answers You Seek</h1>
 <p>We here at <em>TribalDev</em> know how hard it is to make important choices, so why not let us do that for you.</p> 
 <p>Think of your question and shake the ball for an answer.</p>
+<h1>Get the Answers You Seek</h1>
 
 <%= render "partials/ball" %>
 
 <br>
 
 <div class="row col-xs-12 col-md-6">
-  <div> 
+  <div>
     <%= link_to(new_message_path) do %>
       <button class="btn btn-primary">
         Input advice of your own!!!
       </button>
     <% end %>
+    <div id="advice-form"> 
+    </div>
   </div>
   <br>
   <%= render "partials/advice_list", messages: @messages %>
