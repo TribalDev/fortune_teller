@@ -1,13 +1,14 @@
 class MessagesController < ApplicationController
   def index
-    @message = Message.new
+    @message  = Message.new
+    @messages = Message.all
   end
 
   def new
   end
 
   def create
-    if @message = Message.create(message_params)
+    if Message.create(message_params)
       flash[:message] = "Sweet!!! Your wisdom is recorded"
       redirect_to messages_path
     else
@@ -16,6 +17,7 @@ class MessagesController < ApplicationController
   end
 
   def show
+    @message = Message.find(params[:id]).advice
   end
 
   private

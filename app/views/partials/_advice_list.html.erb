@@ -1,0 +1,14 @@
+<div>
+  <table class="table">
+    <tr>
+      <th>advice</th>
+      <th>author</th>
+    </tr>
+    <% messages.each do |m| %>
+    <tr>
+      <td><%= m.advice %></td>
+      <td><%= m.author %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>

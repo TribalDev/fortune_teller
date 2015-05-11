@@ -1,5 +1,5 @@
 <%= render 'partials/nav' %>
 
 <h1>Here is your much needed advice!</h1>
-<%= Message.find(params[:id]).advice %>
-
+<% inside = @message %>
+<%= render "partials/ball", inside: inside %>

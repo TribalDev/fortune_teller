@@ -1,0 +1,11 @@
+<% inside ||= false %>
+
+<div class="get_message block col-xs-12 col-md-6 col-center" id="toggle">
+  <div class="centering col-center col-xs-12 col-md-6" id="shake_button">
+    <% if inside %>
+      <p><%= inside %></p>
+    <% else %>
+      <%= button_to "Shake the ball!", message_path(random_message), :class => "button col-xs-12", :method => :get  %>
+    <% end %>
+  </div>
+</div>

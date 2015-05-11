@@ -1,27 +1,33 @@
 <%= render 'partials/nav' %>
 
 <h1>Get the Answers You Seek</h1>
-<p>We here at <em>TribalDev</em> know how hard it is to make important choices, so why not let us do that for you!</p>
+<p>We here at <em>TribalDev</em> know how hard it is to make important choices, so why not let us do that for you.</p> 
+<p>Think of your question and shake the ball for an answer.</p>
 
-<%= button_to "Think of your question and press here for the answer", message_path(random_message), :class => "button", :method => :get  %>
+<%= render "partials/ball" %>
 
 <br>
-<div class="dropdown">
-  <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Input advice of your own!!!
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-    <%= form_for @message do |f| %>
-      <%= f.label :author, "Your Name" %>
-      <br>
-      <%= f.text_field :author %>
-      <br>
-      <%= f.label :advice, "Your Amazing Advice" %>
-      <br>
-      <%= f.text_area :advice %>
-      <br>
-      <%= f.submit %>
-    <% end %>
-  </ul>
+
+<div class="row col-xs-12 col-md-6">
+  <div class="dropdown ">
+    <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Input advice of your own!!!
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+      <%= form_for @message do |f| %>
+        <%= f.label :author, "Your Name" %>
+        <br>
+        <%= f.text_field :author %>
+        <br>
+        <%= f.label :advice, "Your Amazing Advice" %>
+        <br>
+        <%= f.text_area :advice %>
+        <br>
+        <%= f.submit %>
+      <% end %>
+    </ul>
+  </div>
+  <br>
+  <%= render "partials/advice_list", messages: @messages %>
 </div>

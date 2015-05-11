@@ -1,0 +1,28 @@
+.block {
+  background-color: black;
+  border-radius: 50%;
+  width: 400px;
+  height: 400px;
+
+  display: flex;
+  align-items: center;
+}
+
+.centering {
+  background-color: white;
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+
+  display: flex;
+  align-items: center;
+}
+
+.col-center{
+  margin:0 auto;
+}
+
+.button {
+  text-align: center;
+  margin:0 auto;
+}
