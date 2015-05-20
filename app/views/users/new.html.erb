@@ -1,0 +1,16 @@
+<% if @user.errors.any? %>
+  <% @user.errors.full_messages.each do |m| %>
+  <p class="alert alert-danger"><%= m %></p>
+  <% end %>
+<% end %>
+
+<%= form_for @user do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <br>
+  <%= f.submit class: "btn btn-success" %>
+<% end %>
+

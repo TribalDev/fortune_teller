@@ -7,7 +7,7 @@
     <% messages.each do |m| %>
     <tr>
       <td><%= m.advice %></td>
-      <td><%= m.author %></td>
+      <td><%= m.user.name %></td>
     </tr>
     <% end %>
   </table>

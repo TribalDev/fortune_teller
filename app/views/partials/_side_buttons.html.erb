@@ -1,0 +1,18 @@
+<br>
+
+<div class="row col-xs-12 col-md-6">
+  <div>
+    <%= link_to(new_message_path) do %>
+      <button class="btn btn-primary">
+        Input advice of your own!!!
+      </button>
+    <% end %>
+  </div>
+  <button class="btn" id="advice_button">
+    Check out the advice from our users
+  </button>
+  <br>
+  <div id="advice_list" class="list_hide">
+    <%= render "partials/advice_list", messages: @messages %>
+  </div>
+</div>

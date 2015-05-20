@@ -3,7 +3,6 @@
 <head>
   <title>Fortune</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -17,7 +16,13 @@
   <% end %>
 <% end %>
 
+<%= render 'partials/nav' %>
+
+<p>We here at <em>TribalDev</em> know how hard it is to make important choices, so why not let us do that for you.</p> 
+<p>Think of your question and shake the ball for an answer.</p>
+
 <%= yield %>
 
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>

@@ -1,10 +1,12 @@
 <header>
-  <ul>
-    <li>
-      <%= link_to "New Ball", messages_path, id: "home_link"%>
-    </li>
-    <li>
-      <%= link_to "Shake the frickin ball", message_path(random_message), class: "get_message" %>
-    </li>
-  </ul>
+  <nav class="navbar navbar-default">
+  
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Start Fortune", messages_path, class: "navbar-brand home_link", id: "nav_home_link" %></li>
+        <li><%= link_to "Get Your Fortune!", message_path(random_message), class: "get_message", id: "nav_get_message" %></li>
+        <li><%= link_to "Register", register_path, id: "nav_register_user" %></li>
+      </ul>
+    </div>
+  </nav>
 </header>

@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  
   def index
     @messages = Message.all
   end
@@ -13,12 +14,14 @@ class MessagesController < ApplicationController
       redirect_to messages_path
     else
       @messages = Message.all
-      render "new"
+      render :new
     end
   end
 
   def show
-    @message = Message.find(params[:id])
+    @messages = Message.all
+    @message  = Message.find(params[:id])
+    render :index
   end
 
   private
