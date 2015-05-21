@@ -15,8 +15,10 @@ class MessagesController < ApplicationController
     @message.author = current_user.name
 
     if @message.save
+      flash[:notice] = "Message Saved, Advice will be taken"
       redirect_to messages_path
     else
+      flash[:error] = "Sorry, something went wrong"
       render :new
     end
   end
@@ -29,6 +31,6 @@ class MessagesController < ApplicationController
 
   private
   def message_params
-    params.require(:message).permit(:advice, :author)
+    params.require(:message).permit(:advice)
   end
 end

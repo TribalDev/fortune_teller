@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
-      flash[:success] = "Welcome"
+      session[:id] = @user.id
+      flash[:notice] = "Welcome"
       redirect_to messages_path
     else
       flash[:error] = "Error registering"
@@ -16,6 +17,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @users = User.all
+  end
   private
 
   def user_params
