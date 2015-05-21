@@ -1,0 +1,20 @@
+<table class="user-index">
+  <tr>
+    <th>
+      Name
+    </th>
+    <th>
+      Advice Contribution
+    <th>
+  </tr>
+<% @users.each do |u| %>
+  <tr>
+    <td id="user-name">
+      <%= link_to u.name, user_path(u) %>
+    </td>
+    <td>
+      <%= u.messages.size %>
+    </td>
+  </tr>
+<% end %>
+</table>

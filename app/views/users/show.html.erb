@@ -1,0 +1,8 @@
+<h1>User: <%= @user.name %></h1>
+<br>
+<h4>Their Advice</h4>
+<hr>
+<% @user.messages.each do |m| %>
+  <p><%= link_to m.advice, message_path(m) %></p>
+  <hr>
+<% end %>
