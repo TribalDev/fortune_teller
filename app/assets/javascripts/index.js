@@ -1,4 +1,8 @@
-// $(document).ready(function(){
+$(document).ready(function(){
+  $("#advice_button").click(function() {
+    $( "#advice_list" ).toggle();
+  });
+
 //   $(".get_message").click(function(ev) {
 //     ev.preventDefault();
 //     var $self=$( ".toggle" );
@@ -21,7 +25,4 @@
 //     });
 //   });
 // 
-//   $("#advice_button").click(function() {
-//     $( "#advice_list" ).toggle();
-//   });
-// });
+});

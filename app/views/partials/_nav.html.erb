@@ -1,11 +1,16 @@
 <header>
   <nav class="navbar navbar-default">
-  
     <div class="container-fluid">
       <ul class="nav navbar-nav">
-        <li><%= link_to "Start Fortune", messages_path, class: "navbar-brand home_link", id: "nav_home_link" %></li>
-        <li><%= link_to "Get Your Fortune!", message_path(random_message), class: "get_message", id: "nav_get_message" %></li>
-        <li><%= link_to "Register", register_path, id: "nav_register_user" %></li>
+        <li><%= link_to "Fortune", messages_path, class: "label label-primary", id: "nav_home_link" %></li>
+        <li><%= link_to "Get Your Fortune!", message_path(random_message), class: "label label-danger", id: "nav_get_message" %></li>
+        <% if current_user %>
+          <li><%= link_to "Add New Message", new_message_path, id: "nav_register_user", class: "label label-primary" %></li>
+          <li><%= link_to "Sign Out", signout_path, id: "nav_sign_in", class: "label label-primary" %></li>
+        <% else %>
+          <li><%= link_to "Register", register_path, id: "nav_register_user", class: "label label-primary" %></li>
+          <li><%= link_to "Sign In", signin_path, id: "nav_sign_in", class: "label label-success"  %></li>
+        <% end %>
       </ul>
     </div>
   </nav>
