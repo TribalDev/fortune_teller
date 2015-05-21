@@ -1,17 +1,16 @@
 <header>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
-      <ul class="nav navbar-nav">
-        <li><%= link_to "Fortune", messages_path, class: "label label-primary", id: "nav_home_link" %></li>
-        <li><%= link_to "Get Your Fortune!", message_path(random_message), class: "label label-danger", id: "nav_get_message" %></li>
+      <ul class="nav navbar-nav" id="nav-ul">
+        <li><%= link_to "Fortune", messages_path, class: "label label-primary" %></li>
+        <li><%= link_to "Get Your Fortune!", message_path(random_message), class: "label label-danger" %></li>
+        <li><%= link_to "See All Users", users_path, class: "white label label-info"  %></li>
         <% if current_user %>
-          <li><%= link_to "Add New Message", new_message_path, id: "nav_register_user", class: "label label-primary" %></li>
-          <li><%= link_to "Sign Out", signout_path, id: "nav_sign_in", class: "label label-primary" %></li>
+          <li><%= link_to "Add New Message", new_message_path, class: "label label-primary" %></li>
+          <li><%= link_to "Sign Out", signout_path, class: "label label-primary" %></li>
         <% else %>
-          <li><%= link_to "Register", register_path, id: "nav_register_user", class: "label label-primary" %></li>
+          <li><%= link_to "Register", register_path, class: "label label-primary" %></li>
           <li><%= link_to "Sign In", signin_path, class: "label label-success"  %></li>
-          <li><%= link_to "See All Users", users_path, class: "label label-info"  %></li>
-          <li><a id="advice-button" class="label label-info" >See All Advice</a></li>
         <% end %>
       </ul>
     </div>
