@@ -7,7 +7,7 @@
     <% messages.each do |m| %>
     <tr>
       <td><%= m.advice %></td>
-      <td><%= m.user.name %></td>
+      <td><%= link_to m.user.name, user_path(m.user) %></td>
     </tr>
     <% end %>
   </table>

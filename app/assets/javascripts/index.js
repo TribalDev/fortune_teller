@@ -1,6 +1,6 @@
 $(document).ready(function(){
-  $("#advice_button").click(function() {
-    $( "#advice_list" ).toggle();
+  $("#advice-button").click(function() {
+    $( "#advice-list" ).toggle();
   });
 
 //   $(".get_message").click(function(ev) {
