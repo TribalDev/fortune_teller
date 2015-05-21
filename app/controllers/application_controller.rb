@@ -8,4 +8,11 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find_by(id: session[:id]) if session[:id]
   end
+
+  def require_user
+    if !current_user
+      flash[:error] = "Must be logged in"
+      redirect_to root_path
+    end
+  end
 end

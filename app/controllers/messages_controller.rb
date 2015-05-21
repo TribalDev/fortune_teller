@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  before_action :require_user, only: [:new, :create]
   
   def index
     @messages = Message.all
@@ -10,10 +11,12 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params)
+    @message.user = current_user
+    @message.author = current_user.name
+
     if @message.save
       redirect_to messages_path
     else
-      @messages = Message.all
       render :new
     end
   end
