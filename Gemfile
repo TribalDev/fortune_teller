@@ -28,6 +28,7 @@ gem 'spring',        group: :development
 
 gem 'bcrypt'
 
+gem 'bootstrap-sass', '~> 3.3.4.1'
 # Use unicorn as the app server
 # gem 'unicorn'
 

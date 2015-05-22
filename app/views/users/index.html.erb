@@ -4,8 +4,11 @@
       Name
     </th>
     <th>
-      Advice Contribution
+      Advice<br> Contribution
+    </th>
     <th>
+      Vote<br> Count
+    </th>
   </tr>
 <% @users.each do |u| %>
   <tr>
@@ -14,6 +17,9 @@
     </td>
     <td>
       <%= u.messages.size %>
+    </td>
+    <td>
+      <%= u.vote_count %>
     </td>
   </tr>
 <% end %>

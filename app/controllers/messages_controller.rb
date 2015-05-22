@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :require_user, only: [:new, :create]
+  before_action :require_user, only: [:new, :create, :vote]
   
   def index
     @messages = Message.all
@@ -29,7 +29,17 @@ class MessagesController < ApplicationController
     render :index
   end
 
+  def vote
+    @message = Message.find_by id: params[:id]
+    @vote  = Vote.create(vote: params[:value], voteable: @message, user_id: current_user.id) 
+    
+    respond_to do |format|
+      format.js 
+    end
+  end
+
   private
+
   def message_params
     params.require(:message).permit(:advice)
   end

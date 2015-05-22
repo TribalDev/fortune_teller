@@ -18,8 +18,13 @@ Rails.application.routes.draw do
   get  '/register' => "users#new"
 
   resources :users, except: :destroy
-  resources :messages
+
+  resources :messages, except: :destroy do 
+    post 'vote', on: :member
+  end
+    
   root 'messages#index'
+
 
   # Example resource route with options:
   #   resources :products do
