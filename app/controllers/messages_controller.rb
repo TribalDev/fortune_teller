@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   before_action :require_user, only: [:new, :create, :vote]
   
   def index
-    @messages = Message.all
+    @messages = Message.vote_sort
   end
 
   def new
@@ -24,9 +24,9 @@ class MessagesController < ApplicationController
   end
 
   def show
-    @messages = Message.all
+    @messages = Message.vote_sort
     @message  = Message.find(params[:id])
-    render :index
+    render :show
   end
 
   def vote

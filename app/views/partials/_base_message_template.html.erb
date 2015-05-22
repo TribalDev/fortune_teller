@@ -1,0 +1,31 @@
+<h1>Get the Balls You Seek</h1>
+
+<% message = @message unless @message.nil? %>
+
+<%= link_to "Get advice", message_path(random_message), class: "label label-danger" %>
+<a id="advice-button" class="label label-info" >See All Advice</a>
+
+<br>
+
+<div class="row col-xs-12 col-md-6 pull-right">
+  <div id="advice-list" class="list-hide">
+    <%= render "partials/advice_list", messages: @messages %>
+  </div>
+</div>
+
+<% @message ||= false %>
+
+<div class="pull-left get_message block col-xs-12 col-md-6 col-center" id = "toggle" href="<%= message_path(random_message) %>" >
+  <% if @message %>
+    <div class="toggle centering col-center col-xs-12 col-md-6" id="shake_button">
+      <div>
+        <p><%= @message.advice %></p>
+        <p class="toggle author">by <%= link_to @message.author, user_path(@message.user) %></p>
+      </div>
+    </div>
+  <% else %>
+    <div class="toggle centering col-center col-xs-12 col-md-6" id="shake_button">
+      <%= link_to "Get Advice!", message_path(random_message), class: "label label-danger col-center" %>
+    </div>
+  <% end %>
+</div>

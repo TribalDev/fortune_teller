@@ -6,23 +6,26 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="im-centered">
+    <%= render 'partials/nav' %>
+    <div class="col-xs-11">
+      <% flash.each do |name, msg| %>
+        <% if msg.is_a?(String) %>
+          <div class="alert alert-<%= name == "notice" ? "success" : "danger" %>">
+            <a class="close" data-dismiss="alert">&#215;</a>
+            <%= content_tag :div, msg, :id => "flash_#{name}" %>
+          </div>
+        <% end %>
+      <% end %>
 
-<% flash.each do |name, msg| %>
-  <% if msg.is_a?(String) %>
-    <div class="alert alert-<%= name == "notice" ? "success" : "danger" %>">
-      <a class="close" data-dismiss="alert">&#215;</a>
-      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+
+      <p>We here at <em>TribalDev</em> know how hard it is to make important choices, so why not let us do that for you.</p> 
+      <p>Think of your question and shake the ball for an answer.</p>
+
+      <%= yield %>
+
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     </div>
-  <% end %>
-<% end %>
-
-<%= render 'partials/nav' %>
-
-<p>We here at <em>TribalDev</em> know how hard it is to make important choices, so why not let us do that for you.</p> 
-<p>Think of your question and shake the ball for an answer.</p>
-
-<%= yield %>
-
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  </div>
 </body>
 </html>

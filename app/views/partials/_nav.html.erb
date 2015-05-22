@@ -1,18 +1,28 @@
 <header>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
-      <ul class="nav navbar-nav" id="nav-ul">
-        <li><%= link_to "Fortune", messages_path, class: "label label-primary" %></li>
-        <li><%= link_to "Get Your Fortune!", message_path(random_message), class: "label label-danger" %></li>
-        <li><%= link_to "See All Users", users_path, class: "white label label-info"  %></li>
-        <% if current_user %>
-          <li><%= link_to "Add New Message", new_message_path, class: "label label-primary" %></li>
-          <li><%= link_to "Sign Out", signout_path, class: "label label-primary" %></li>
-        <% else %>
-          <li><%= link_to "Register", register_path, class: "label label-primary" %></li>
-          <li><%= link_to "Sign In", signin_path, class: "label label-success"  %></li>
-        <% end %>
-      </ul>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to "Advice Balls", messages_path, class: "navbar-brand" %>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav" id="nav-ul">
+          <li><%= link_to "Get Advice!", message_path(random_message), class: "label label-danger" %></li>
+          <li><%= link_to "See All Users", users_path, class: "white label label-info"  %></li>
+          <% if current_user %>
+            <li><%= link_to "Add New Balls", new_message_path, class: "label label-primary" %></li>
+            <li><%= link_to "Sign Out", signout_path, class: "label label-primary" %></li>
+          <% else %>
+            <li><%= link_to "Register", register_path, class: "label label-primary" %></li>
+            <li><%= link_to "Sign In", signin_path, class: "label label-success"  %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </nav>
 </header>

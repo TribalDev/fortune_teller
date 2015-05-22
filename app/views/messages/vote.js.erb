@@ -1,6 +1,6 @@
 <% if @vote.valid? %>
   $("#<%= @message.id %>_message_count").html('<%= @message.vote_count %> votes');
 <% else %>
-  $('#<%= @message.id %>_message_vote_error').html("Sorry, only one vote per Post");
+  $('#<%= @message.id %>_message_vote_error').html("Sorry, only one vote per Message");
   $('#<%= @message.id %>_message_vote_error').slideDown(350);
 <% end %>

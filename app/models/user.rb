@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
   def vote_count
     self.up_vote - self.down_vote
   end
+
+  def self.vote_sort
+    self.all.sort_by{|x| x.vote_count}.reverse
+  end
 end

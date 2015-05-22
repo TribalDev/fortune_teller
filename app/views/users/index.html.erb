@@ -19,7 +19,22 @@
       <%= u.messages.size %>
     </td>
     <td>
-      <%= u.vote_count %>
+      <div class="row">
+        <div class="alert alert-danger" id="<%= u.id %>_user_vote_error" style="display:none;"></div>
+      </div>
+      <div class="well">
+        <% if current_user %>
+          <%= link_to(vote_user_path(u, :value => "true"), :method => "post", remote: true) do %>
+            <span class="glyphicon glyphicon-menu-up"></span>
+          <% end %>
+        <% end %>
+        <p id="<%= u.id %>_user_count"><%= u.vote_count %> votes for <%= u.name %></p>
+        <% if current_user %>
+          <%= link_to(vote_user_path(u, :value => "false"), :method => "post", remote: true) do %>
+            <span class="glyphicon glyphicon-menu-down"></span>
+          <% end %>
+        <% end %>
+      </div>
     </td>
   </tr>
 <% end %>

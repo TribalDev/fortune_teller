@@ -1,0 +1,6 @@
+<% if @vote.valid? %>
+  $("#<%= @user.id %>_user_count").html('<%= @user.vote_count %> votes');
+<% else %>
+  $('#<%= @user.id %>_user_vote_error').html("Sorry, only one vote per User");
+  $('#<%= @user.id %>_user_vote_error').slideDown(350);
+<% end %>

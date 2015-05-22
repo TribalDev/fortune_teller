@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   get  '/signout'   => "sessions#destroy"
   get  '/register' => "users#new"
 
-  resources :users, except: :destroy
+  resources :users, except: :destroy do 
+    post 'vote', on: :member
+  end
 
   resources :messages, except: :destroy do 
     post 'vote', on: :member

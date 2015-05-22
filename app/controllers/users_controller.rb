@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :require_user, only: [:vote]
 
   def index
     @users = User.all
@@ -23,6 +24,16 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by id: params[:id]
+  end
+
+  def vote
+    @user = User.find_by id: params[:id]
+    @vote  = Vote.create(vote: params[:value], voteable: @user, user_id: current_user.id) 
+    
+    binding.pry
+    respond_to do |format|
+      format.js 
+    end
   end
 
   private
