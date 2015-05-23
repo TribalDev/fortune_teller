@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :messages
+  has_many :votes
   has_many :votes, as: :voteable
   has_secure_password
 

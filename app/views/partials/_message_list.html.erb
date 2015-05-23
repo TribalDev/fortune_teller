@@ -2,21 +2,6 @@
   <td><%= message.advice %></td>
   <td><%= link_to message.user.name, user_path(message.user) %></td>
   <td>
-    <div class="row">
-      <div class="alert alert-danger" id="<%= message.id %>_message_vote_error" style="display:none;"></div>
-    </div>
-    <div class="well">
-      <% if current_user %>
-        <%= link_to(vote_message_path(message, :value => "true"), :method => "post", remote: true) do %>
-          <span class="glyphicon glyphicon-menu-up"></span>
-        <% end %>
-      <% end %>
-      <p id="<%= message.id %>_message_count"><%= message.vote_count %> advice votes</p>
-      <% if current_user %>
-        <%= link_to(vote_message_path(message, :value => "false"), :method => "post", remote: true) do %>
-          <span class="glyphicon glyphicon-menu-down"></span>
-        <% end %>
-      <% end %>
-    </div>
+    <%= render "partials/message_vote_part", message: message %>
   </td>
 </tr>
