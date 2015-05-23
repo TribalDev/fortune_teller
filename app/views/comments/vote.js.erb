@@ -1,0 +1,6 @@
+<% if @vote.valid? %>
+  $("#<%= @comment.id %>_comment_count").html('<%= @comment.vote_count %> votes');
+<% else %>
+  $('#<%= @comment.id %>_comment_vote_error').html("Sorry, only one vote per Comment");
+  $('#<%= @comment.id %>_comment_vote_error').slideDown(350);
+<% end %>

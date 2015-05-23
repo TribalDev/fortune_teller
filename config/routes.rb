@@ -23,6 +23,10 @@ Rails.application.routes.draw do
 
   resources :messages, except: :destroy do 
     post 'vote', on: :member
+
+    resources :comments, only: :create do
+      post 'vote', on: :member
+    end
   end
     
   root 'messages#index'

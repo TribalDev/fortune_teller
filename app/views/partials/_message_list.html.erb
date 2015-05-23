@@ -1,6 +1,6 @@
 <tr>
-  <td><%= message.advice %></td>
-  <td><%= link_to message.user.name, user_path(message.user) %></td>
+  <td><%= link_to message.advice, message_path(message) %></td>
+  <td><%= link_to message.creator.name, user_path(message.creator) %></td>
   <td>
     <%= render "partials/message_vote_part", message: message %>
   </td>

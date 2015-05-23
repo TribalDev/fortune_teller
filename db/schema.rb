@@ -11,13 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150521140958) do
+ActiveRecord::Schema.define(version: 20150523094332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "loads", force: true do |t|
-    t.text     "json"
+  create_table "comments", force: true do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "message_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

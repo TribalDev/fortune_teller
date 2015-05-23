@@ -1,0 +1,31 @@
+<% comments.each do |c| %>
+  <hr>
+  <div class="col-xs-12">
+    <div class="alert alert-danger" id="<%= c.id %>_comment_vote_error" style="display:none;">
+    </div>
+  </div>
+
+  <div class="col-xs-12">
+    <div class="well col-xs-2">
+      <% if current_user %>
+        <%= link_to(vote_message_comment_path(message, c, :value => "true"), :method => "post", remote: true) do %>
+          <span class="glyphicon glyphicon-menu-up"></span>
+        <% end %>
+      <% end %>
+      <p id="<%= c.id %>_comment_count"><%= c.vote_count %> comment votes</p>
+      <% if current_user %>
+        <%= link_to(vote_message_comment_path(message, c, :value => "false"), :method => "post", remote: true) do %>
+          <span class="glyphicon glyphicon-menu-down"></span>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="col-xs-1">
+    </div>
+    <div class="col-xs-9">
+      <h4><%= c.body %></h4>
+      <p>by: <%= c.creator.name %></p>
+      <p>at: <%= c.created_at %></p>
+    </div>
+  </div>
+<% end %>

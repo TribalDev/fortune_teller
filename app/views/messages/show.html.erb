@@ -3,3 +3,19 @@
 </div>
 
 <%= render "partials/message_vote_part", message: @message %>
+
+<%= render "partials/errors", obj: @comment %>
+
+<% if current_user %>
+  <%= form_for [@message, @comment] do |f| %>
+    <br>
+    <%= f.label :body, "Leave a comment" %>
+    <br>
+    <%= f.text_area :body %>
+    <br>
+    <%= f.submit class: "btn btn-success" %>
+  <% end %>
+<% end %>
+
+<%= render "partials/comments_list", comments: @message.comments, message: @message %>
+

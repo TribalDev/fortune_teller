@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params)
-    @message.user = current_user
+    @message.creator = current_user
     @message.author = current_user.name
 
     if @message.save
@@ -24,9 +24,8 @@ class MessagesController < ApplicationController
   end
 
   def show
-    @messages = Message.vote_sort
     @message  = Message.find(params[:id])
-    render :show
+    @comment  = Comment.new
   end
 
   def vote

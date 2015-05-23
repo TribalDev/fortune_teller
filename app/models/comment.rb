@@ -1,11 +1,9 @@
-class User < ActiveRecord::Base
-  has_many :messages
-  has_many :comments
-  has_many :votes
+class Comment < ActiveRecord::Base
+  belongs_to :creator, foreign_key: 'user_id', class_name: 'User'
+  belongs_to :message
   has_many :votes, as: :voteable
-  has_secure_password
 
-  validates :name, uniqueness: true
+  validates :body, presence: true
 
   def up_vote
     self.votes.where(vote: true).length

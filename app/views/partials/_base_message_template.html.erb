@@ -11,7 +11,7 @@
     <div class="centering col-center col-xs-12 col-md-6" id="shake_button">
       <div>
         <p><%= @message.advice %></p>
-        <p class="toggle author">by <%= link_to @message.author, user_path(@message.user) %></p>
+        <p class="toggle author">by <%= link_to @message.author, user_path(@message.creator) %></p>
       </div>
     </div>
   <% else %>
