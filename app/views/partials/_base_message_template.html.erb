@@ -1,4 +1,4 @@
-<%= link_to "Get advice", message_path(random_message), class: "label label-danger" %>
+<%= link_to "Get advice", message_path(random_message), class: "label label-danger shake" %>
 
 <h1>Get the Balls You Seek</h1>
 
@@ -8,14 +8,14 @@
 
 <div class="block col-xs-12 col-md-6 col-center" id = "toggle" href="<%= message_path(random_message) %>" >
   <% if @message %>
-    <div class="toggle centering col-center col-xs-12 col-md-6" id="shake_button">
+    <div class="centering col-center col-xs-12 col-md-6" id="shake_button">
       <div>
         <p><%= @message.advice %></p>
         <p class="toggle author">by <%= link_to @message.author, user_path(@message.user) %></p>
       </div>
     </div>
   <% else %>
-    <div class="toggle centering col-center col-xs-12 col-md-6" id="shake_button">
+    <div class="centering col-center col-xs-12 col-md-6" id="shake_button">
       <%= link_to "Get Advice!", message_path(random_message), class: "label label-danger col-center" %>
     </div>
   <% end %>

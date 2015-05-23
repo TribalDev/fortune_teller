@@ -12,7 +12,7 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav" id="nav-ul">
-          <li><%= link_to "Get Advice!", message_path(random_message), class: "label label-danger" %></li>
+          <li><%= link_to "Get Advice!", message_path(random_message), class: "label label-danger shake" %></li>
           <li><%= link_to "See All Users", users_path, class: "white label label-info"  %></li>
           <% if current_user %>
             <li><%= link_to "Add New Balls", new_message_path, class: "label label-primary" %></li>
